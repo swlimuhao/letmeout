@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no"/><!-- 禁止手机号自动超链接（针对ios） -->
+    <title>广东财经大学</title>
+
+    <script type="text/javascript">
+        window.onload=function()        
+        {
+        window.requestAnimationFrame(getDate)        
+        }        
+        function getDate()        
+        {        
+        window.setTimeout(function(){        
+        window.requestAnimationFrame(getDate)        
+        },1000/2)        
+        var d=new Date();   
+        var year=d.getFullYear()  //获取年
+        var month=d.getMonth()+1;  //获取月，从 Date 对象返回月份 (0 ~ 11)，故在此处+1
+        var day=d.getDay()    //获取日        
+        var days=d.getDate() //获取日期        
+        var hour=d.getHours()   //获取小时        
+        var minute=d.getMinutes()  //获取分钟        
+        var second=d.getSeconds()   //获取秒        
+        if(month<10) month="0"+month        
+        if(days<10) days="0"+days        
+        if(hour<10) hour="0"+hour        
+        if(minute<10) minute="0"+minute        
+        if(second<10) second="0"+second        
+        var week=new Array("星期日","星期一","星期二","星期三","星期四","星期五","星期六")
+        
+        
+        var Tools=document.getElementById("OutTime")      
+        var da1=year+"-"+month+"-"+days+" "+(hour-1)+":"+minute
+        Tools.innerHTML=da1
+        var year1=year
+        var month1=month
+        var days1=days
+        var hour1=hour
+        var minute1=minute
+        var second1=second
+
+        var Tools=document.getElementById("InTime")  
+        var da2=year+"-"+month+"-"+days+" "+"22"+":"+"00"
+        Tools.innerHTML=da2
+        var Tools=document.getElementById("total")  
+        var da3=(22-hour1)/24.0
+        da3 = da3.toFixed(1)
+        if(da3==0) da3=0
+        Tools.innerHTML=da3
+
+        var Tools=document.getElementById("ApplyTime")
+        var ApplyTime=year1+"-"+month1+"-"+days1+" "+(hour1-2)+":"+(minute1-1)
+        Tools.innerHTML=ApplyTime
+        }
+        </script>
+</head>
+<style>
+    body{
+        overflow-x:hidden;
+        background-color: #ffffff;
+    }
+    header{
+        display: grid;
+        /* 指定每一行的宽度 每个宽度中间用空格隔开 */
+        grid-template-rows:1fr; 
+        /* 指定每一列的宽度 每个宽度中间用空格隔开 */
+        grid-template-columns: 1fr; 
+        margin-left: -7px; 
+        width: 100%; /*铺满整个屏幕宽度*/
+        background-color: white;
+        border-bottom: #ffffff 1px solid;
+        box-shadow: 0px 5px 5px #d1d1d126;  
+
+        position: fixed;
+        z-index: 999;
+    }
+
+    header .top-bar{
+        display:flex;
+        justify-content: space-between;
+        height: 35px;
+        margin-bottom: 8px;
+        background-color: #ffffff;
+        
+    }
+    header .in-option{
+        display:flex;
+        height: 25px;
+        background-color: #ffffff;
+    }
+    .out-box{
+        display: flex;
+        justify-content: space-between;
+        width: 97%;
+        height: 90px;
+        background-color: #f7f7f7;
+        position: relative;
+        top: 58px;
+        left: 5px;
+        /* z-index: 999; */
+        align-items: center;
+        border: #f7f7f7 solid 0.5px; 
+        border-radius: 8px;
+        font-family: "黑体";
+
+        /* box-shadow: 0px 5px 15px #d1d1d138; */
+    }
+    .status{
+        line-height: 50px;
+        margin-left: 15px;
+        color:#e36c74;
+        /* text-shadow: #f68b74 0px 0px 1px; */
+    }
+    .status img{
+        height: 70px;
+        margin-bottom: -50px;
+        margin-right: 10px;
+    }
+    .detail-line{
+        display: flex;
+        justify-content:left;
+        align-items: center;
+        margin-top: 0px;
+        margin-bottom: 10px;
+        font-size: 14px;
+        line-height: 10px;
+        margin-left: 15px;
+    }
+    .detail{
+        color: #999999;
+    }
+    .reason{
+        color:#ff594f;
+        
+    }
+    .main-area{
+        display:grid;
+        gap: 10px;
+    }
+    .waichu-detail{
+        margin-top: 60px;
+        font-family: "黑体";
+    }
+    .waichu-detail-div{
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        margin-left: 5px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    .waichu-detail-line{
+        color: #888888;
+        font-size: 14px;
+        width: 120px;
+        line-height: 25px;
+    }
+    .waichu-detail-line-right{
+        font-size: 14px;
+        text-decoration: none;
+        line-height: 25px;
+    }
+    .waichu-detail-line-right img{
+        width: 75px;
+        height: 75px;
+        margin-bottom: -20px;
+    }
+    .parting-line{
+        border-bottom: #e2e2e2 solid 0.5px;
+    }
+    .shenpi{
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        margin-left: 15px;
+        font-size: 14px;
+        line-height: 25px;
+    }
+    .shenpi img{
+        width: 50px;
+        margin-right: 20px;
+        margin-top: -10px;
+        margin-left: ;
+    }
+    .shenpi-detail{
+        margin-top: -60px;
+    }
+    .shenpi-line{
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        font-family: "黑体";
+        margin-top: 30px;
+    }
+    .shenpi-name{
+        font-size: 17px;
+        white-space:nowrap;/* 强制不换行 */
+        margin-right: -40px; 
+    }
+    .shenpi-class{
+        margin-left: 50px;
+        font-size: 13px;
+        white-space:nowrap;
+        color: #888888;
+    }
+    .shenpi-time{
+        margin-top: 25px;
+        /* margin-left: 0px; */
+        font-size: 13px;
+        text-align: right;
+        color: #888888;
+    }
+    .shenpi-status{
+        color: #7ec37b;
+        margin-top: -25px;
+        white-space:nowrap;/* 强制不换行 */
+    }
+    footer{
+        display: flex;/*设置弹性盒子*/
+        justify-content: space-around;/*水平对齐，两边间距是中间间距的一半*/
+        align-items: center;/* 垂直居中对齐 */
+        position: fixed;
+        bottom:2%;
+        left:50%;
+        transform: translateX(-50%);
+        width: 100vw;
+        height: 55px;
+        /* border-top:0.2px solid rgb(229, 229, 229); *//*设置上边框*/
+        /* max-width: 760px; */
+        font-size: 12px;
+        color: #888888;
+        text-align: center;
+        z-index: 999;
+        position: fixed;
+        background-color: white;
+    }
+    footer div{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 45%;
+        height: 80%;
+        /* margin-right: 10px; */
+        /* margin-left: 5%; */
+        border: #e66c66 solid 2px;
+        border-radius: 30px;
+        background-color: white;
+        /* box-shadow: #7ec37b 0px 2px 10px; */
+        color: #e66c66;
+        font-size: 17px;
+    }
+    footer div .ico{
+        width: 20px;
+    }
+    
+</style>
+<body>
+    <header>
+        <div class="top-bar">
+            <img src="res/img/back.png" alt="返回" style="margin-top: 12px;margin-left: 15px;;height:15px;">
+            <img src="res/img/close.png" alt="关闭">
+        </div>
+    </header>
+    <footer>
+        <div>延期申请</div>
+    </footer>
+    <div class="main-area">
+        <div class="out-box">
+            <div>
+                <div class="status">外出中</div>
+                <div class="detail-line">
+                    <div class="detail">离校时间：</div>
+                    <div id="OutTime"></div><!-- 获取当前时间 -->
+                    <!-- <div class="time">2022-09-05 08:00</div> -->
+                </div>
+                <div class="detail-line">
+                    <div class="detail">返校时间：</div>
+                    <div class="time" id="InTime"></div><!-- 获取当前时间 -->
+                </div>
+            </div>
+        </div>
+        <div class="waichu-detail">
+            <div class="waichu-detail-div">
+                <div class="waichu-detail-line">外出总天数</div>
+                <div class="waichu-detail-line-right" id="total"></div>
+            </div>
+            <div class="waichu-detail-div">
+                <div class="waichu-detail-line">外出原因</div>
+                <div class="waichu-detail-line-right">拿快递</div>
+            </div>
+            <div class="waichu-detail-div">
+                <div class="waichu-detail-line">外出地点</div>
+                <div class="waichu-detail-line-right">校外菜鸟驿站</div>
+            </div>
+            <div class="waichu-detail-div">
+                <div class="waichu-detail-line">家长是否知情</div>
+                <div class="waichu-detail-line-right">是</div>
+            </div>
+            <div class="waichu-detail-div">
+                <div class="waichu-detail-line">紧急联系电话</div>
+                <div class="waichu-detail-line-right">13769988745</div>
+            </div>
+            <div class="waichu-detail-div">
+                <div class="waichu-detail-line" style="margin-top: -45px;">相关图片</div>
+                <div class="waichu-detail-line-right">
+                    <img src="res/img/jietu.png" alt="截图">
+                </div>
+            </div>
+        </div>
+        <div class="parting-line"></div><!-- 分割线 -->
+        <div class="shenpi">
+            <div class="shenpi-img">
+                <img src="res/img/shenpi2.png" alt="审批流程">
+            </div>
+            <div class="shenpi-detail">
+                <div>
+                    <div class="shenpi-line">
+                        <div class="shenpi-name">王晓辉</div>
+                        <div class="shenpi-class">2021级汉语言文学1班</div>
+                        <div class="shenpi-time" id="ApplyTime"></div>
+                    </div>
+                    <div class="shenpi-status">发起申请</div>
+                </div>
+                <div>
+                    <div class="shenpi-line">
+                        <div>
+                            <div class="shenpi-name">（佛山校区）黄敬聪</div>
+                            <div style="display: flex;">
+                                <div class="shenpi-status" style="margin-top: -2px;">已通过</div>
+                                <div class="shenpi-time" id="PassTime" style="margin-left:130px;margin-top: -2px;">2022-07-15 21:22</div>
+                            </div>
+                            </div>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+        </div>  
+    </div>
+    
+    
+</body>
+</html>
