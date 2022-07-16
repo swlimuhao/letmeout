@@ -14,9 +14,9 @@
         }        
         function getDate()        
         {        
-        window.setTimeout(function(){        
+        /* window.setTimeout(function(){        
         window.requestAnimationFrame(getDate)        
-        },1000/2)        
+        },1000/2)   */      /* 每500ms获取一次时间 */
         var d=new Date();   
         var year=d.getFullYear()  //获取年
         var month=d.getMonth()+1;  //获取月，从 Date 对象返回月份 (0 ~ 11)，故在此处+1
@@ -43,6 +43,13 @@
         var minute1=minute
         var second1=second
 
+        var year2=year
+        var month2=month
+        var days2=days
+        var hour2=hour
+        var minute2=minute
+        var second2=second
+
         var Tools=document.getElementById("InTime")  
         var da2=year+"-"+month+"-"+days+" "+"22"+":"+"00"
         Tools.innerHTML=da2
@@ -53,8 +60,20 @@
         Tools.innerHTML=da3
 
         var Tools=document.getElementById("ApplyTime")
-        var ApplyTime=year1+"-"+month1+"-"+days1+" "+(hour1-2)+":"+(minute1-1)
+        if(hour1-2<10) hour1="0"+(hour1-2)
+        else hour1=hour1-2
+        if(minute-1<10) minute="0"+(minute1-1)
+        else minute=minute-1
+        var ApplyTime=year1+"-"+month1+"-"+days1+" "+hour1+":"+minute1
         Tools.innerHTML=ApplyTime
+
+        var Tools=document.getElementById("PassTime")
+        if(hour2-1<10) hour2="0"+(hour2-1)
+        else hour2=hour2-1
+        if(minute2+5<10) minute2="0"+(minute2+5)
+        else minute2=minute2+5
+        var PassTime=year2+"-"+month2+"-"+days2+" "+hour2+":"+minute2
+        Tools.innerHTML=PassTime
         }
         </script>
 </head>
@@ -181,12 +200,13 @@
         margin-left: 15px;
         font-size: 14px;
         line-height: 25px;
+        
+        overflow: hidden;/* 隐藏超出宽度的内容 */
     }
     .shenpi img{
         width: 50px;
         margin-right: 20px;
-        margin-top: -10px;
-        margin-left: ;
+        margin-top: 5px;
     }
     .shenpi-detail{
         margin-top: -60px;
